@@ -27,6 +27,9 @@
     <ClCompile Include="ComprSt.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="GTN.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Karmanova_AA-21-07_LR№1.h">
@@ -39,6 +42,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="ComprSt.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="GTN.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

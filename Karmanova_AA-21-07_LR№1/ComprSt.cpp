@@ -117,9 +117,8 @@ std::istream& operator>>(std::istream& in, compress_station& cs) {
     return in;
 }
 
-std::ostream& operator<<(std::ostream& out, compress_station& cs)
+std::ostream& operator<<(std::ostream& out, const compress_station& cs)
 {
-    cout << "Id: " << cs.csId << endl;
     cout << "Название компрессорной станции: " << " " << cs.Pname << endl;
     cout << "Количество цехов: " << " " << cs.amount_shop << endl;
     cout << "Количество рабочих цехов: " << " " << cs.amount_Wshop << endl;

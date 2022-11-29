@@ -131,12 +131,14 @@
     <ClCompile Include="Check.cpp" />
     <ClCompile Include="ClrKarmanova.cpp" />
     <ClCompile Include="ComprSt.cpp" />
+    <ClCompile Include="GTN.cpp" />
     <ClCompile Include="Karmanova_AA-21-07_LR№1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Check.h" />
     <ClInclude Include="ClrKarmanova.h" />
     <ClInclude Include="ComprSt.h" />
+    <ClInclude Include="GTN.h" />
     <ClInclude Include="Karmanova_AA-21-07_LR№1.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
