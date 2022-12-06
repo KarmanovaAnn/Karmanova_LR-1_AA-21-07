@@ -25,7 +25,7 @@ void truba::Connect(int in, int out)
 void truba::PrintConnection()
 {
     if ((IdInput == 0) || (IdExit == 0)) {
-        cout << "Сети нет " << endl;
+        return;
     }
     else {
         cout << " КС (id=  " << IdInput << ") соединена с КС(id= " << IdExit << ") с помощью трубы (id= " << pId << ")" << endl;

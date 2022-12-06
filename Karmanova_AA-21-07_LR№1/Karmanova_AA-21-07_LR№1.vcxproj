@@ -131,6 +131,8 @@
     <ClCompile Include="Check.cpp" />
     <ClCompile Include="ClrKarmanova.cpp" />
     <ClCompile Include="ComprSt.cpp" />
+    <ClCompile Include="Graph.cpp" />
+    <ClCompile Include="GraphCycle.cpp" />
     <ClCompile Include="GTN.cpp" />
     <ClCompile Include="Karmanova_AA-21-07_LR№1.cpp" />
   </ItemGroup>
@@ -138,6 +140,8 @@
     <ClInclude Include="Check.h" />
     <ClInclude Include="ClrKarmanova.h" />
     <ClInclude Include="ComprSt.h" />
+    <ClInclude Include="Graph.h" />
+    <ClInclude Include="GraphCycle.h" />
     <ClInclude Include="GTN.h" />
     <ClInclude Include="Karmanova_AA-21-07_LR№1.h" />
   </ItemGroup>

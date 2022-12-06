@@ -13,6 +13,7 @@
 #include "ClrKarmanova.h"
 #include "ComprSt.h"
 #include "GTN.h"
+#include "Graph.h"
 using namespace std;
 
 void showMenu() {
@@ -28,7 +29,8 @@ void showMenu() {
     cout << "9.Удалить компрессорную станцию" << endl;
     cout << "10.Поиск компонентов и пакетное редактирование" << endl;
     cout << "11.Создание газотранспортной сети" << endl;
-    cout << "12.Выйти" << endl;
+    cout << "12.Топологическая сортировка " << endl;
+    cout << "13.Выйти" << endl;
 }
 
 void Exit(GTN gtn) {
@@ -60,7 +62,8 @@ int main(){
     srand(time(0));
     system("cls");//очистка экрана
     GTN gtn;
-    const int POINT_OF_MENU = 12;
+    //Graph g(6);
+    const int POINT_OF_MENU = 13;
     int activeMenuItem = 0;
     int ch = 0;
     bool exit = false;
@@ -158,6 +161,12 @@ int main(){
             }
 
             else if (activeMenuItem == 11) {
+                system("cls");
+                gtn.Graphs();
+                system("pause");
+            }
+
+            else if (activeMenuItem == 12) {
                 Exit(gtn);
                 exit = true;
             }

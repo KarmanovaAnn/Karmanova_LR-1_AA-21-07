@@ -63,6 +63,7 @@ void GTN::Connect()
             }
         }
     }
+    
 }
 
 bool GTN::IsCsAvailable(int id)
@@ -71,6 +72,58 @@ bool GTN::IsCsAvailable(int id)
         cout << "КС с таким ID не найдена " << endl;
     }
     return CS_s.contains(id);
+}
+
+void GTN::Graphs()
+{
+    int n;
+    compress_station cs;
+    n = CS_s.size();
+    cout <<"Всего вершин в графе:"<< n << endl;
+    for (auto& [key, value] : pipes)
+    {
+        pipes[key].PrintConnection();
+    }
+   //!!!!!!!!!!!!!!!!!!!!!
+    GraphCycle g(n+1);
+    for (auto& [key, value] : pipes)
+    {
+        if ((value.IdInput == 0) || (value.IdExit == 0)) {
+            continue;
+        }
+        else {
+            g.addEdge(value.IdInput, value.IdExit);
+        }
+    }
+    if (g.isCyclic()) {
+        cout << "Ошибка! В графе есть цикл - топологическая сортировка невозможна"<<endl;
+        return;
+    }
+        
+    else {
+        GraphSort();
+    }
+    //return 0;
+    
+    cout << endl;
+}
+
+void GTN:: GraphSort() {
+    int n;
+    compress_station cs;
+    n = CS_s.size();
+    Graph gr(n + 1);
+    for (auto& [key, value] : pipes)
+    {
+        if ((value.IdInput == 0) || (value.IdExit == 0)) {
+            continue;
+        }
+        else {
+            gr.addEdge(value.IdInput, value.IdExit);
+        }
+    }
+    cout << "Произведена топологическая сортировка графа:" << endl;
+    gr.topologicalSort();
 }
 
 bool GTN::IsPipeAvailable(int id)
@@ -167,7 +220,7 @@ void GTN::Save() {
         cout << "Данные успешно записаны!" << endl;
         fout << pipes.size() << endl;
         for (auto& [id, truba] : pipes) {
-            fout << id << endl << truba.Pname << endl << truba.condition << endl << truba.diameter << endl << truba.length << endl;
+            fout << id << endl << truba.Pname << endl << truba.condition << endl << truba.diameter << endl << truba.length << endl<<truba.IdInput<<endl<<truba.IdExit<<endl;
         }
         fout << CS_s.size() << endl;
         for (auto& [id, cs] : CS_s) {
@@ -182,12 +235,6 @@ void GTN::Download() {
     cout << "Введите название файла:" << endl;
     string file_name;
     cin >> file_name;
-    /*pipes.clear();
-    CS_s.clear();
-    truba p;
-    p.maxPid = 1;
-    compress_station cs;
-    cs.maxCSid = 1;*/
     fin.open(file_name, ios::in);
     if (!fin.is_open()) {
         cout << "Ошибка! Не удалось открыть файл" << endl;
@@ -223,6 +270,8 @@ void GTN::Download() {
             cout << "Диаметр трубы:" << " " << tr.diameter << endl;
             fin >> tr.length;
             cout << "Длина трубы:" << " " << tr.length << endl;
+            fin >> tr.IdInput;
+            fin >> tr.IdExit;
             pipes.emplace(id, tr);
         }
         int count2;

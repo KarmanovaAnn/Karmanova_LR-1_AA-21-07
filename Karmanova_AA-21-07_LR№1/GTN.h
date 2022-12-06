@@ -6,8 +6,8 @@
 #include <fstream>
 #include <set>
 #include "Check.h"
-
-
+#include "Graph.h"
+#include "GraphCycle.h"
 
 class GTN
 {
@@ -19,6 +19,8 @@ public:
     void Add_pipe();
     void Connect();
     bool IsCsAvailable(int id);
+    void Graphs();
+    void GraphSort();
 
     bool IsPipeAvailable(int id);
     
